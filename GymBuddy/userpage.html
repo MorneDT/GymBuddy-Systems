@@ -22,9 +22,12 @@
             <i class="menu_open fa fa-bars fa-lg"></i>
         </span>
         <ul class="menu_items">
-            <li><a id="profile-menu-item" href="#" onclick="toggle('profile')" class="hide"><i class="fas fa-user"></i> Profile</a></li>
-            <li><a id="growth-menu-item" href="#" onclick="toggle('growth')" class="hide" ><i class="fas fa-seedling"></i> Growth</a></li>
-            <li><a id="settings-menu-item" href="#" onclick="toggle('settings')" class="hide"><i class="fas fa-cog"></i> Settings</a></li>
+            <li><a id="profile-menu-item" href="#" onclick="toggle('profile')" class="hide"><i class="fas fa-user"></i>
+                    Profile</a></li>
+            <li><a id="growth-menu-item" href="#" onclick="toggle('growth')" class="hide"><i
+                        class="fas fa-seedling"></i> Growth</a></li>
+            <li><a id="settings-menu-item" href="#" onclick="toggle('settings')" class="hide"><i class="fas fa-cog"></i>
+                    Settings</a></li>
             <li><a href="index.html"><i class="fas fa-power-off"></i> Sign-out</a></li>
         </ul>
         <main class="content">
@@ -49,21 +52,25 @@
     </div>
 
     <div id="profile" class="menu-item-div">
-        <div class="button"> <a id="close-profile" class="show" href="#" onclick="toggle('profile')"><span>close</span></a></div>
-
+        <label id="fullname"></label>
+        <div class="button">
+            <a id="close-profile" class="show" href="#" onclick="toggle('profile')"><span>close</span></a>
+        </div>
 
     </div>
     <div id="growth" class="menu-item-div">
-        <div class="button"> <a id="close-growth" class="show" href="#" onclick="toggle('growth')"><span>close</span></a></div>
+        <div class="button">
+            <a id="close-growth" class="show" href="#" onclick="toggle('growth')"><span>close</span></a>
+        </div>
 
 
     </div>
     <div id="settings" class="menu-item-div">
-        <div class="button"> <a id="close-settings" class="show" href="#" onclick="toggle('settings')"><span>close</span></a></div>
-
+        <div class="button"> 
+            <a id="close-settings" class="show" href="#" onclick="toggle('settings')"><span>close</span></a>
+        </div>
 
     </div>
-
 
     <script> type = "text/javascript"
         $(document).ready(function () {
@@ -76,16 +83,24 @@
             });
         });
 
-        // function toggle() {
-        //     var profile = document.getElementById('profile');
-        //     profile.classList.toggle('active');
-        // }
+        function getUserInfo(open_id) {
+
+            var user = JSON.parse(localStorage.getItem('user'));
+            switch (open_id) {
+                case 'profile': {
+                    $('#profile #fullname')[0].innerHTML = user.fullName;
+                }
+                default:
+                    break;
+            }
+        }
 
         function toggle(open_id) {
             console.log(open_id);
             switch (open_id) {
                 case 'profile': {
                     var profile = document.getElementById('profile');
+                    getUserInfo(open_id);
                     profile.classList.toggle('active');
                     break;
                 }
@@ -114,5 +129,4 @@
     </script>
 
 </body>
-
 </html>

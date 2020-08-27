@@ -14,13 +14,9 @@ function loginRequest(username, password, goToPage) {
         success:function(res){
             localStorage.setItem('token', res.token);
             localStorage.setItem('user', JSON.stringify(res.userToReturn));
-            //console.log(JSON.stringify(res.userToReturn));
-            //alert("welcome");
             var current = window.location.protocol + "//"+ window.location.hostname + ":" + window.location.port;
             current = current +"/GymBuddy/" + goToPage;
-            //console.log("current", current);
             window.location.assign(current);
-            
         },
         error:function(res){
             alert("Email Or username Invalid " + res.statusText);

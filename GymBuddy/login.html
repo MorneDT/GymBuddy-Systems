@@ -26,7 +26,7 @@
             </div>
           </div>
           <label>
-            <div class="button" > <a href="#" onclick="login()"><span>Login</span></a></div>
+            <div class="button"> <a href="#" onclick="login()"><span>Login</span></a></div>
           </label>
           <div class="link"> <a href="#">Forgot password</a> or <a id="SignUpSwap" href="#">Sign up</a> </div>
         </form>
@@ -43,7 +43,8 @@
               <input type="text" placeholder="surname" name="surname" required>
             </div>
             <div class="email">
-              <input type="email" class="email-input" placeholder="email address" id="email" name="email" onkeydown="validation()" />
+              <input type="email" class="email-input" placeholder="email address" id="email" name="email"
+                onkeydown="validation()" />
               <span id="text"></span> </div>
             <div class="passwordCreate">
               <input type="password" class="pass-input" placeholder="create password" name="password" required>
@@ -60,6 +61,7 @@
   </div>
 
   <script src="/GymBuddy/js/web-requests.js"></script>
+  <script src="/GymBuddy/js/main.js"></script>
   <script type="text/javascript">
     $(document).ready(function () {
       $("#SignUpSwap").click(function () {
@@ -72,50 +74,6 @@
       });
 
     });
-
-    function validation() {
-      var SignUp = document.getElementById("SignUp");
-      var email = document.getElementById("email").value;
-      var text = document.getElementById("text");
-      var pattern = /^[^]+@[^]+\.[a-z]{2,3}$/;
-
-      if (email.match(pattern)) {
-        SignUp.classList.add("valid");
-        SignUp.classList.remove("invalid");
-        text.innerHTML = "";
-      }
-      else {
-        SignUp.classList.remove("valid");
-        SignUp.classList.add("invalid");
-        text.innerHTML = "Please Enter a Valid Email Address";
-        text.style.color = "#FD063C";
-      }
-      if (email == "") {
-        SignUp.classList.remove("valid");
-        SignUp.classList.remove("invalid");
-        text.innerHTML = "";
-      }
-    }
-    
-    function login() {
-      // username = gutierrez.christian@gmail.com , password = P@55w0rd123
-
-      var myloginForm = document.getElementById("Login");
-      var user = myloginForm.elements["email"].value;
-      var pass = myloginForm.elements["password"].value;
-
-       loginRequest(user, pass,"userpage.html");
-    }
-
-    function register() {
-      var myregisterForm = document.getElementById("SignUp");
-      var username = myregisterForm.elements["email"].value;
-      var password = myregisterForm.elements["password"].value;
-      var name = myregisterForm.elements["name"].value;
-      var surname = myregisterForm.elements["surname"].value;
-
-      registerRequest(username, password, name, surname, "userpage.html");
-    }
   </script>
 </body>
 

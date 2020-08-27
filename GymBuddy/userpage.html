@@ -1,0 +1,118 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>GymBuddy/UserPage</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        html,
+        body {
+            height: 100vh;
+            overflow: hidden;
+            font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page" id="menu">
+        <span class="menu_toggle">
+            <i class="menu_open fa fa-bars fa-lg"></i>
+        </span>
+        <ul class="menu_items">
+            <li><a id="profile-menu-item" href="#" onclick="toggle('profile')" class="hide"><i class="fas fa-user"></i> Profile</a></li>
+            <li><a id="growth-menu-item" href="#" onclick="toggle('growth')" class="hide" ><i class="fas fa-seedling"></i> Growth</a></li>
+            <li><a id="settings-menu-item" href="#" onclick="toggle('settings')" class="hide"><i class="fas fa-cog"></i> Settings</a></li>
+            <li><a href="index.html"><i class="fas fa-power-off"></i> Sign-out</a></li>
+        </ul>
+        <main class="content">
+            <div class="content_inner">
+                <img src="images/Gym Buddy LOGO-07.png" class="logo_UserP">
+                <section2>
+                    <div class="Headings">
+                        <h2>Workouts</h2>
+                        <div class="iframe-container">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/hBQfOPfny7w"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </section2>
+                <section2>
+
+                </section2>
+            </div>
+        </main>
+    </div>
+
+    <div id="profile" class="menu-item-div">
+        <div class="button"> <a id="close-profile" class="show" href="#" onclick="toggle('profile')"><span>close</span></a></div>
+
+
+    </div>
+    <div id="growth" class="menu-item-div">
+        <div class="button"> <a id="close-growth" class="show" href="#" onclick="toggle('growth')"><span>close</span></a></div>
+
+
+    </div>
+    <div id="settings" class="menu-item-div">
+        <div class="button"> <a id="close-settings" class="show" href="#" onclick="toggle('settings')"><span>close</span></a></div>
+
+
+    </div>
+
+
+    <script> type = "text/javascript"
+        $(document).ready(function () {
+            $(".hide").click(function () {
+                $("#menu").hide();
+            });
+
+            $(".show").click(function () {
+                $("#menu").show();
+            });
+        });
+
+        // function toggle() {
+        //     var profile = document.getElementById('profile');
+        //     profile.classList.toggle('active');
+        // }
+
+        function toggle(open_id) {
+            console.log(open_id);
+            switch (open_id) {
+                case 'profile': {
+                    var profile = document.getElementById('profile');
+                    profile.classList.toggle('active');
+                    break;
+                }
+                case 'growth': {
+                    var growth = document.getElementById('growth');
+                    growth.classList.toggle('active');
+                    break;
+                }
+                case 'settings': {
+                    var settings = document.getElementById('settings');
+                    settings.classList.toggle('active');
+                    break;
+                }
+                default:
+                    break;
+            }
+        }
+
+        var $page = $('.page');
+        $('.menu_toggle').on('click', function () {
+            $page.toggleClass('real');
+        });
+        $('.content').on('click', function () {
+            $page.removeClass('real');
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>GYM Buddy Login</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <div class="center">
+    <div class="row">
+      <div class="column"> <a href="index.html"> <img src="images/Gym Buddy LOGO-07.png" width="944" height="665"
+            alt="GymBuddy Logo" class="centerIMG" /> </a> </div>
+      <div class="column">
+        <form id="Login" class="login-div" action="#">
+          <div class="fields">
+            <div class="email">
+              <input type="text" class="email-input" placeholder="email" name="email" />
+            </div>
+            <div class="password">
+              <input type="password" class="pass-input" placeholder="password" name="password" />
+            </div>
+          </div>
+          <label>
+            <div class="button" > <a href="#" onclick="login()"><span>Login</span></a></div>
+          </label>
+          <div class="link"> <a href="#">Forgot password</a> or <a id="SignUpSwap" href="#">Sign up</a> </div>
+        </form>
+
+        <!--/////////////////////////////////////////////////////////////
+					SignUp is hidden until needed-->
+
+        <form id="SignUp" class="SignUp-div" action="#">
+          <div class="fields">
+            <div class="name">
+              <input type="text" placeholder="name" name="name" required>
+            </div>
+            <div class="surname">
+              <input type="text" placeholder="surname" name="surname" required>
+            </div>
+            <div class="email">
+              <input type="email" class="email-input" placeholder="email address" id="email" name="email" onkeydown="validation()" />
+              <span id="text"></span> </div>
+            <div class="passwordCreate">
+              <input type="password" class="pass-input" placeholder="create password" name="password" required>
+            </div>
+            <div class="passwordConfirm">
+              <input type="password" class="pass-input" placeholder="confirm password" required>
+            </div>
+          </div>
+          <div class="button"> <a href="#" onclick="register()"><span>sign up</span></a></div>
+          <div class="link"> Already a member <a id="LoginSwap" href="#">Login</a> </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="/GymBuddy/js/web-requests.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $("#SignUpSwap").click(function () {
+        $("#Login").hide();
+        $("#SignUp").show();
+      });
+      $("#LoginSwap").click(function () {
+        $("#SignUp").hide();
+        $("#Login").show();
+      });
+
+    });
+
+    function validation() {
+      var SignUp = document.getElementById("SignUp");
+      var email = document.getElementById("email").value;
+      var text = document.getElementById("text");
+      var pattern = /^[^]+@[^]+\.[a-z]{2,3}$/;
+
+      if (email.match(pattern)) {
+        SignUp.classList.add("valid");
+        SignUp.classList.remove("invalid");
+        text.innerHTML = "";
+      }
+      else {
+        SignUp.classList.remove("valid");
+        SignUp.classList.add("invalid");
+        text.innerHTML = "Please Enter a Valid Email Address";
+        text.style.color = "#FD063C";
+      }
+      if (email == "") {
+        SignUp.classList.remove("valid");
+        SignUp.classList.remove("invalid");
+        text.innerHTML = "";
+      }
+    }
+    
+    function login() {
+      // username = gutierrez.christian@gmail.com , password = P@55w0rd123
+
+      var myloginForm = document.getElementById("Login");
+      var user = myloginForm.elements["email"].value;
+      var pass = myloginForm.elements["password"].value;
+
+       loginRequest(user, pass,"userpage.html");
+    }
+
+    function register() {
+      var myregisterForm = document.getElementById("SignUp");
+      var username = myregisterForm.elements["email"].value;
+      var password = myregisterForm.elements["password"].value;
+      var name = myregisterForm.elements["name"].value;
+      var surname = myregisterForm.elements["surname"].value;
+
+      registerRequest(username, password, name, surname, "userpage.html");
+    }
+  </script>
+</body>
+
+</html>

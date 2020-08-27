@@ -1,0 +1,561 @@
+@charset "utf-8";
+/*------------------------------------------------------------------
+[Table of contents]
+
+1.  Template default CSS
+	1.1	Buttons
+	1.2 Fields
+	1.3 Links
+2.	Login
+3.	Review Cards
+4.  Userpage
+    4.1 Profile
+    4.2 Growth
+    4.3 Settings
+------------------------
+------------------------
+(Responsive always last)
+. 	Responsive
+	.1 Desktop View
+	.2 Tablet View
+	.3 Mobile View
+------------------------
+------------------------
+COPYRIGHT NOTICE
+
+This website is an artform created by Morne Du Toit.
+The website titled GymBuddy is protected by International copyright laws.
+Reproduction and distribution of this content 
+without written permission of its owner is prohibited
+
+Copyright © 2020 Morne Du Toit
+-------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------
+							 	1. Template default CSS
+-------------------------------------------------------------------------------------------*/ 
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+    color: aliceblue;
+    background: #091921;
+}
+a {
+    color: #6f6f6f;
+    font-size: 12px;
+    text-decoration: none;
+}
+p {
+    max-width: 800px;
+    margin: 0px auto;
+    padding: 0 20px;
+    color: #111111;
+    font-size: 14px;
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+}
+h3 {
+    color: #111111;
+}
+/*centerIMG centers images while scaling accordingly*/
+.centerIMG {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    height: auto;
+}
+/*center- centers any object without scaling*/
+.center {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px 0;
+}
+.column {
+    float: left;
+    width: 49%;
+    height: 80vh;
+    padding: 5px;
+}
+/* Clear floats after object containers */
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+section {
+    margin: 2px;
+    padding: 7px;
+    height: 100vh;
+}
+section2 {
+    margin: 0;
+    padding: 20px 0px;
+    box-sizing: border-box;
+    outline: none;
+    background: #FFFFFF;
+    position: relative;
+    width: 100%;
+    min-height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+section2 .Headings h2 {
+    text-align: center;
+    font-size: 10vw;
+    text-transform: uppercase;
+    font-weight: 900;
+    line-height: 1em;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-attachment: fixed;
+}
+section2:nth-child(2) .Headings h2 {
+    background-image: url("../images/back-fitness-gym-power-pose.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+section2:nth-child(3) .Headings h2 {
+    background-image: url("../images/fitness-gym-girl-nb-1366x768.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+section2:nth-child(4) .Headings h2 {
+    background-image: url("../images/thumb-1920-624338.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.iframe-container{
+ position: relative;
+ width: 100%;
+ padding-bottom: 56.25%;
+ height: 0;
+}
+.iframe-container iframe{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+}
+/*----------------------------------------*/
+/* 1.1 Buttons
+/*----------------------------------------*/
+.button a {
+    margin: 0px 2px;
+    position: relative;
+    display: inline-block;
+    width: 222px;
+    text-align: center;
+    padding: 10px 30px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: #6f6f6f;
+    font-size: 18px;
+    border-radius: 40px;
+    box-shadow: -1px -1px 3px rgba(255, 255, 255, 0.1), 2px 2px 6px rgba(0, 0, 0, 0.8);
+}
+.button:hover a {
+    box-shadow: -1px -1px 3px rgba(255, 255, 255, 0.1), 2px 2px 6px rgba(0, 0, 0, 0.8), inset -2px -2px 10px rgba(255, 255, 255, 0.1), inset 2px 2px 10px rgba(0, 0, 0, 0.8);
+    color: #FFFFFF;
+    text-shadow: 0 0 1px #FFFFFF, 0 0 20px #FFFFFF;
+}
+
+/*----------------------------------------*/
+/* 1.2 Fields
+/*----------------------------------------*/
+.fields {
+    width: 100%;
+    padding: 75px 5px 5px 5px;
+}
+.fields input {
+    border: none;
+    outline: none;
+    background: #091921;
+    font-size: 15px;
+    color: #6f6f6f;
+    font-weight: 100;
+    padding: 13px 41px;
+    margin-bottom: 12.5px;
+    margin-top: 12.5px;
+    border-radius: 40px;
+    box-shadow: inset -1px -1px 3px rgba(255, 255, 255, 0.1), inset 1px 1px 6px rgba(0, 0, 0, 0.8);
+}
+/*----------------------------------------*/
+/* 1.3 Links
+/*----------------------------------------*/
+.link {
+    padding-top: 20px;
+}
+.link a {
+    text-decoration: none;
+    font-size: 15px;
+}
+/*-------------------------------------------------------------------------------------------
+							 	END OF Template default CSS
+-------------------------------------------------------------------------------------------*/ 
+/*-------------------------------------------------------------------------------------------
+							 	        2. Login
+-------------------------------------------------------------------------------------------*/ 
+
+.column .login-div .SignUp-div {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.login-div {
+    background: none;
+}
+.SignUp-div {
+    display: none;
+}
+#text {
+    display: block;
+    font-weight: 300;
+    font-style: italic;
+    padding: 0px 20px;
+    margin: 0px;
+}
+/*-------------------------------------------------------------------------------------------
+							 	       END of Login
+-------------------------------------------------------------------------------------------*/ 
+/*-------------------------------------------------------------------------------------------
+							 	        3. Review Cards
+-------------------------------------------------------------------------------------------*/ 
+.container {
+    margin: 70px 0px 0px;
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 81vw;
+}
+.container .ReviewCard {
+    width: 330px;
+    margin: 20px;
+    padding: 40px 30px;
+    border-radius: 40px;
+    box-shadow: -6px -6px 20px rgba(255, 255, 255, 1), 6px 6px 20px rgba(0, 0, 0, .1);
+}
+.container .ReviewCard:hover {
+    box-shadow: inset -6px -6px 10px rgba(255, 255, 255, .5), inset 6px 6px 20px rgba(0, 0, 0, .05);
+}
+.container .ReviewCard .imgBOX {
+    position: relative;
+    text-align: center;
+}
+.container .ReviewCard .imgBOX img {
+    max-width: 120px;
+    border-radius: 50%;
+}
+.container .ReviewCard h3 {
+    letter-spacing: 2px;
+    font-weight: 700;
+    font-size: 1.4em;
+    text-transform: capitalize;
+}
+.container .ReviewCard p {
+    color: #111111;
+}
+/*-------------------------------------------------------------------------------------------
+							 	       END of Review Cards
+-------------------------------------------------------------------------------------------*/ 
+/*-------------------------------------------------------------------------------------------
+							 			4. USERPAGE
+-------------------------------------------------------------------------------------------*/ 
+.page {
+    height: 100%;
+    background-color: #091921;
+}
+.logo_UserP{
+    width: 300px;
+}
+.content {
+    height: 200%;
+    transform-origin: top left;
+    transition: transform 0.7s cubic-bezier(1, 0.005, 0.24, 1);
+    background-image: url("/GymBuddy/images/back-fitness-gym-power-pose.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.content_inner {
+    height: 50%;
+    overflow-y: auto;
+    padding: 50px;
+}
+.menu_toggle {
+    z-index: 900;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    display: block;
+    cursor: pointer;
+    width: 100px;
+    height: 80px;
+    background-color: #091921;
+    border-bottom-right-radius: 100%;
+}
+.menu_toggle :active i {
+    opacity: 0.8;
+}
+.menu_toggle i {
+    color: #ffffff;
+}
+.menu_toggle .menu_open,
+.menu_toggle .menu_close {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -15px;
+    margin-left: -12px;
+    transition: transform 0.7s cubic-bezier(1, 0.005, 0.24, 1);
+}
+.menu_toggle:hover {
+    color: #FFFFFF;
+    text-shadow: 0 0 1px #FFFFFF, 0 0 20px #FFFFFF;
+}
+.menu_toggle.menu_close {
+    transform: rotate(20deg);
+    transform-origin: -100px -160px;
+}
+.menu_items {
+    position: fixed;
+    bottom: 0;
+    left: 50px;
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+.menu_items li {
+    height: 60px;
+    margin-bottom: 30px;
+    transform: translateX(-300px);
+    transition: transform 0.7s cubic-bezier(1, 0.005, 0.24, 1);
+}
+.menu_items li:nth-child(2) {
+    margin-left: 40px;
+}
+.menu_items li:nth-child(3) {
+    margin-left: 80px;
+}
+.menu_items li:nth-child(4) {
+    margin-left: 120px;
+}
+.menu_items a {
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #6f6f6f;
+    transition: color 0.2s;
+}
+.menu_items a .icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    content: '';
+    display: block;
+    width: 60px;
+    height: 60px;
+    margin-left: -33px;
+    margin-top: -32px;
+}
+.menu_items a:hover {
+    color: #FFFFFF;
+    text-shadow: 0 0 1px #FFFFFF, 0 0 20px #FFFFFF;
+}
+.menu_items a:hover .icon:after {
+    color: #FFFFFF;
+    text-shadow: 0 0 1px #FFFFFF, 0 0 20px #FFFFFF;
+}
+.real .content {
+    transform: rotate(-30deg);
+}
+.real .menu_open {
+    transform: rotate(-20deg);
+}
+
+.real .menu_items li {
+    transform: translateX(0);
+    transition: transform 0.35s 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.real .menu_items li:nth-child(2) {
+    transition-delay: 0.47s;
+}
+.real .menu_items li:nth-child(3) {
+    transition-delay: 0.48s;
+}
+.real .menu_items li:nth-child(4) {
+    transition-delay: 0.49s;
+}
+/*----------------------------------------*/
+/* 4.1 Profile
+/*----------------------------------------*/
+#profile{
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+    padding: 50px;
+    background: #091921;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+}
+#profile.active{
+    visibility: visible;
+    opacity: 1;
+    transition: 0.5s;
+}
+/*----------------------------------------*/
+/* 4.2 Growth
+/*----------------------------------------*/
+#growth{
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+    padding: 50px;
+    background: #091921;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+}
+#growth.active{
+    visibility: visible;
+    opacity: 1;
+    transition: 0.5s;
+}
+/*----------------------------------------*/
+/* 4.3 Settings
+/*----------------------------------------*/
+#settings{
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+    padding: 50px;
+    background: #091921;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+}
+#settings.active{
+    visibility: visible;
+    opacity: 1;
+    transition: 0.5s;
+}
+/*-------------------------------------------------------------------------------------------
+							 			END of USERPAGE
+-------------------------------------------------------------------------------------------*/ 
+
+/*----------------------------------------*/
+/*  Responsive
+/*----------------------------------------*/
+/* .1 Desktop View
+/*----------------------------------------*/
+@media (min-width: 1488px) {
+    .column {
+        padding: 170px 0px;
+    }
+}
+/* .2 Tablet View
+/*----------------------------------------*/
+@media (min-width:992px) {
+    .column {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 30px 0;
+    }
+}
+@media (max-width:991px) {
+    .column {
+        width: 100%;
+        height: auto;
+        float: none;
+        position: inherit;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 30px 0;
+    }
+}
+/* .3 Mobile View
+/*----------------------------------------*/
+@media (max-width:400px) {
+    .column {
+        float: left;
+        width: 100%;
+        height: auto;
+        padding: 5px;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 4px;
+}
+::-webkit-scrollbar-track {
+    background: #091921;
+}
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(transparent, #FD063C, transparent);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #FD063C;
+}
+
+.moving-mouse-holder {
+  margin: auto;
+  margin-top: 20px;
+}
+
+.moving-mouse-holder .mouse {
+  width: 22px;
+  height: 35px;
+  position: relative;
+  right: 0;
+  border-radius: 18px;
+  /*border: 2px solid #6f6f6f;*/
+box-shadow: -1px -1px 3px rgba(255, 255, 255, 0.1), 2px 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+.moving-mouse-holder .mouse-button {
+  background-color: #fff;
+  width: 4px;
+  height: 10px;
+  border-radius: 2px;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  margin: 0 0 0 -2px;
+  animation: mouse-scroll 1s infinite alternate;
+	box-shadow:  0 0 1px #FFFFFF, 0 0 20px #FFFFFF;
+}
+@keyframes mouse-scroll {
+  to {
+    transform: translate(0, 6px) scale(1, 0.8);
+  }
+}

@@ -152,13 +152,17 @@ function addTodo(toDo, id) {
            <circle cy="12.5" cx="14" r="1" fill="#999"></circle><circle cy="18" cx="9.5" r="1" fill="#999"></circle><circle cy="18" cx="14" r="1" fill="#999"></circle></svg>
          </div>
          <input type="checkbox" id="${id}" />
-         <label for="${id}">
+         <label for="${id}" >
            <div class="checkbox"><span class="fa fa-check"></span></div>
-           <span class="item-name">${toDo}</span>
+           <span class="item-name">${toDo} </span>
            <input type="text">
+           <label1 class = "RepsSets" for ="sets">Sets</label1>
+           <input type="number" id="sets" min="1" max="999" placeholder="--"> 
+           <label1 class = "RepsSets" for = "reps">Reps</label1>
+            <input type="number" id="reps" min="1" max="999" placeholder="--">
          </label>
          <div class="actions">
-           <span class="fa fa-pencil"></span>
+           <!--<span class="fa fa-pencil"></span>-->
            <span class="fa fa-trash"></span>
          </div>
        </li>

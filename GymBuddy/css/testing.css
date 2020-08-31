@@ -224,6 +224,30 @@ body{
 }
 
 .add input,
+.exerciseMain ul li input[type=number]{
+  text-align: center;
+  display: inline; 
+  float: right; 
+  width: 30px; 
+  border-radius: 10px;
+  border: 0px;
+  padding: 6px;
+  box-shadow: inset -6px -6px 10px rgba(255, 255, 255, .5), inset 6px 6px 20px rgba(0, 0, 0, .05);
+}
+
+*:focus {
+  outline: none;
+}
+.exerciseMain ul li label .RepsSets{
+  float: right;
+  line-height: 0px;
+  padding-top: 12px;
+  padding-right: 15px;
+  padding-left: 2px;
+ 
+}
+
+.add input,
 .exerciseMain ul li input[type=text]:focus{
   outline:none;
   width:100%;
@@ -370,4 +394,16 @@ body{
 .ui-tooltip-content {
     position: relative;
     padding: 0.5em;
+}
+
+
+
+
+
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

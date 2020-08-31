@@ -1,5 +1,7 @@
+// -------------------- Sorting Exercise list --------------------
 $(function() {  
-    $( "#sortable" ).sortable({   
-        placeholder: "ui-sortable-placeholder"   
-    });  
+  $( "#sortable" ).sortable({   
+      placeholder: "ui-sortable-placeholder"   
+  });  
 });  
+// -------------------- END --------------------

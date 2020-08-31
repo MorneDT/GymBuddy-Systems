@@ -91,3 +91,4 @@ function register() {
 
     registerRequest(username, password, name, surname, "userpage.html");
 }
+

@@ -8,8 +8,8 @@ $(document).ready(function () {
   /*DELETE*/
   $('body').on('click', '.fa-trash', function () {
 
-    if ($('.main ul li').hasClass("temp_deleted")) {
-      $('.main ul li.temp_deleted').remove();
+    if ($('.exerciseMain ul li').hasClass("temp_deleted")) {
+      $('.exerciseMain ul li.temp_deleted').remove();
     }
 
     list_item_to_undo = $(this).parent().parent();
@@ -31,7 +31,7 @@ $(document).ready(function () {
     time_out = setTimeout(function () {
       $('.undo').removeClass('active');
       if (undo === false) {
-        $('.main ul li.temp_deleted').remove();
+        $('.exerciseMain ul li.temp_deleted').remove();
       }
     }, undo_time);
 
@@ -54,7 +54,7 @@ $(document).ready(function () {
   });
 
 
-  $('body').on('keypress', '.main ul li input[type=text]', function (e) {
+  $('body').on('keypress', '.exerciseMain ul li input[type=text]', function (e) {
     if (e.which == 13) {
       //hide undo
       $('.undo').removeClass('active');
@@ -76,41 +76,43 @@ $(document).ready(function () {
 
 
   /*ADD NEW*/
-  $('.add').click(function () {
-    $(this).find('input[type=text]').val('Add new').show().select();
-  });
+  // $('.add').click(function () {
+  //   $(this).find('input[type=text]').val('Add new').show().select();
+  // });
 
 
-  $('body').on('keypress', '.add input[type=text]', function (e) {
-    if (e.which == 13) {
+  // $('body').on('keypress', '.add input[type=text]', function (e) {
+  //   if (e.which == 13) {
 
-      //hide undo
-      $('.undo').removeClass('active');
+  //     //hide undo
+  //     $('.undo').removeClass('active');
 
-      var newvalue = $(this).val();
+  //     var newvalue = $(this).val();
 
-      var clone = $(".main ul li:first").clone();
-      clone.find('label span.item-name').text(newvalue);
+  //     var clone = $(".exerciseMain ul li:first").clone();
+  //     clone.find('label span.item-name').text(newvalue);
 
-      var random_num = Math.floor(Math.random() * 1000) + 1
-      var id = newvalue.replace(/\s/g, '');
-      var ids = id + random_num;
+  //     var random_num = Math.floor(Math.random() * 1000) + 1
+  //     var id = newvalue.replace(/\s/g, '');
+  //     var ids = id + random_num;
 
-      clone.find('input').attr({
-        id: ids
-      });
-      clone.find('label').attr('for', ids);
-      clone.find("input[type=checkbox]").prop('checked', false);
-      clone.removeClass('priority priority1 priority2 checked');
-      clone.show();
-      clone.appendTo(".main ul");
+  //     clone.find('input').attr({
+  //       id: ids
+  //     });
+  //     clone.find('label').attr('for', ids);
+  //     clone.find("input[type=checkbox]").prop('checked', false);
+  //     clone.removeClass('priority priority1 priority2 checked');
+  //     clone.show();
+  //     clone.appendTo(".exerciseMain ul");
 
-      $('.add').trigger("click");
-      return false;    //<---- Add this line
-    }
-  });
+  //     $('.add').trigger("click");
+  //     return false;    //<---- Add this line
+  //   }
+  // });
+
+
   /*CLICK*/
-  $('body').on('change', '.main ul li input[type=checkbox]', function () {
+  $('body').on('change', '.exerciseMain ul li input[type=checkbox]', function () {
     if ($(this).prop('checked')) {
       $(this).parent().addClass('checked');
     } else {
@@ -119,7 +121,7 @@ $(document).ready(function () {
   });
   /*SORTABLE*/
   $(function () {
-    $(".main ul").sortable({
+    $(".exerciseMain ul").sortable({
       animation: 100,
       delay: 150,
       cursor: 'move',
@@ -164,10 +166,7 @@ function addTodo(toDo, id) {
 
   const postion = "beforeend";
   sortable.insertAdjacentHTML(postion, item);
-  
 }
-
 
 addTodo("Push-ups", id++);
 addTodo("Wide Push-ups", id++);
-

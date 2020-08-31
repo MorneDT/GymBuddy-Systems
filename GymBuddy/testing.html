@@ -10,12 +10,10 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css"></script>
-  <script
-    src="https://cdn.rawgit.com/egorshar/jquery-ui-sortable-animation/master/jquery.ui.sortable-animation.js"></script>
+  <script src="https://cdn.rawgit.com/egorshar/jquery-ui-sortable-animation/master/jquery.ui.sortable-animation.js"></script>
 </head>
 
 <body>
-
   <div class="undo">
     Task deleted
     <div>
@@ -26,26 +24,23 @@
 
   <div class="wrapper">
 
-
-    <div class="main">
+    <div class="exerciseMain">
       <div class="header">
         <h1>Workout<span id="date"></span></h1>
       </div>
 
       <ul id="sortable">
 
-
-
       </ul>
-
-      <div class="add">
+        
+      <!-- <div class="add">
         <div class="add-txt">
           <div>
             <span class="fa fa-plus"></span>
           </div>
           <span class="txt">Add new</span>
           <input type="text">
-        </div>
+        </div> -->
 
       </div>
 
@@ -61,6 +56,7 @@
     const today = new Date();
     document.getElementById("date").innerHTML = today.toLocaleDateString("en-US", options)
   </script>
+  
 </body>
 
 </html>

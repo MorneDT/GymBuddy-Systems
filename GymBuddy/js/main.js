@@ -41,6 +41,7 @@ $('.menu_toggle').on('click', function () {
 $('.content').on('click', function () {
     $page.removeClass('real');
 });
+
 function validation() {
     var SignUp = document.getElementById("SignUp");
     var email = document.getElementById("email").value;
@@ -66,8 +67,6 @@ function validation() {
 }
 
 function login() {
-    // username = gutierrez.christian@gmail.com , password = P@55w0rd123
-
     var myloginForm = document.getElementById("Login");
     var user = myloginForm.elements["email"].value;
     var pass = myloginForm.elements["password"].value;

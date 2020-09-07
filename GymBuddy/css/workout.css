@@ -226,9 +226,8 @@ body{
 .add input,
 .exerciseMain ul li input[type=number]{
   text-align: center;
-  display: inline; 
   float: right; 
-  width: 30px; 
+  width: 30px;  
   border-radius: 10px;
   border: 0px;
   padding: 6px;

@@ -1,0 +1,32 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+  color: #091921;
+  
+}
+.zc-html, .zc-body {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  /* height: 100%; */
+  max-width:400px;
+  margin: 100px auto;
+}
+
+.chart--container {
+  margin: 25px;
+  height: 100%;
+  width: 100%;
+  min-height: 530px;
+  border-radius: 40px;
+  box-shadow: -6px -6px 20px rgba(255, 255, 255, 1), 6px 6px 20px rgba(0, 0, 0, .1);
+}
+.chart--container:hover{
+  box-shadow: inset -6px -6px 10px rgba(255, 255, 255, .5), inset 6px 6px 20px rgba(0, 0, 0, .05);
+}
+
+.zc-ref {
+  display: none;
+}

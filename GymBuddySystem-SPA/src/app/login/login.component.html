@@ -1,0 +1,45 @@
+<div class="center">
+    <div class="row">
+        <div class="column"> <a [routerLink]="['/home']"> <img src="assets/images/Gym Buddy LOGO-07.png" width="944"
+                    height="665" alt="GymBuddy Logo" class="centerIMG" /> </a> </div>
+        <div class="column">
+            <form [formGroup]="loginForm" class="login-div" (ngSubmit)="login()">
+                <div class="fields">
+                    <div class="email">
+                        <!-- <input type="text" class="email-input" placeholder="email" name="email"/> -->
+
+                        <input type="text"
+                            [ngClass]="{'is-invalid': loginForm.get('username').errors && loginForm.get('username').touched}"
+                            class="email-input" formControlName="username" placeholder="email">
+                        <div class="invalid-feedback"
+                        *ngIf="loginForm.get('username').errors && loginForm.get('username').touched">Please enter email address</div>
+
+                    </div>
+                    <div class="password">
+                        <!-- <input type="password" class="pass-input" placeholder="password" name="password" required [(ngModel)]="model.password"/> -->
+                        <input type="password"
+                            [ngClass]="{'is-invalid': loginForm.get('password').errors && loginForm.get('password').touched}"
+                            class="pass-input" formControlName="password" placeholder="Password">
+
+                        <div class="invalid-feedback"
+                            *ngIf="loginForm.get('password').hasError('required') && loginForm.get('password').touched">
+                            Password is required
+                        </div>
+                        <div class="invalid-feedback"
+                            *ngIf="loginForm.get('password').hasError('minlength') && loginForm.get('password').touched">
+                            Password must be at least 4 characters
+                        </div>
+                        <div class="invalid-feedback"
+                            *ngIf="loginForm.get('password').hasError('maxlength') && loginForm.get('password').touched">
+                            Password cannot exceed 8 characters
+                        </div>
+                    </div>
+                </div>
+                <label>
+                    <div class="button"> <a href="#" onclick="login()"><span>Login</span></a></div>
+                </label>
+                <div class="link"> <a href="#">Forgot password</a> or <a id="SignUpSwap" [routerLink]="['/auth/register']">Sign up</a> </div>
+            </form>
+        </div>
+    </div>
+</div>

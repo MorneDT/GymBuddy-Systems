@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../_models/user';
-import { FormGroup, Validators, FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { RegisterUser } from '../_models/register-user';
+import { FormGroup, FormControl , Validators, FormBuilder } from '@angular/forms';
 import { AuthService } from '../_services/auth.service';
 import { Router } from '@angular/router';
 import { AlertifyService } from '../_services/alertify.service';
+import { LoginUser } from '../_models/login-user';
 
 @Component({
   selector: 'app-register',
@@ -12,7 +13,8 @@ import { AlertifyService } from '../_services/alertify.service';
 })
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
-  user: User;
+  user: RegisterUser;
+  credentials: LoginUser;
 
   constructor(private authService: AuthService, private router: Router, private alertify: AlertifyService, private fb: FormBuilder) { }
 
@@ -24,7 +26,7 @@ export class RegisterComponent implements OnInit {
     this.registerForm = this.fb.group({
       name: ['', Validators.required],
       surname: ['', Validators.required],
-      username: ['', Validators.required],
+      emailAddress: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(16)]],
       confirmPassword: ['', Validators.required]
     }, {validator: this.passwordMatchValidator});
@@ -34,8 +36,7 @@ export class RegisterComponent implements OnInit {
     return g.get('password').value === g.get('confirmPassword').value ? null : {'mismatch': true};
   }
 
-  register(event) {
-    console.log(event);
+  register() {
     if (this.registerForm.valid) {
       this.user = Object.assign({}, this.registerForm.value);
       this.authService.register(this.user).subscribe(() => {
@@ -43,7 +44,11 @@ export class RegisterComponent implements OnInit {
       }, error => {
         this.alertify.error(error);
       }, () => {
-        this.authService.login(this.user).subscribe(() => {
+        this.credentials = <LoginUser>{
+          username: this.user.emailAddress,
+          password: this.user.password
+        }
+        this.authService.login(this.credentials).subscribe(() => {
           this.router.navigate(['/user']);
         });
       });

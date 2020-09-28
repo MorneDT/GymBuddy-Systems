@@ -35,10 +35,10 @@
                         </div>
                     </div>
                 </div>
-                <label>
-                    <div class="button"> <a href="#" onclick="login()"><span>Login</span></a></div>
-                </label>
-                <div class="link"> <a href="#">Forgot password</a> or <a id="SignUpSwap" [routerLink]="['/auth/register']">Sign up</a> </div>
+                <button type="submit" [disabled]="!loginForm.valid">Login</button>
+                <div class="link"> 
+                    <a href="#">Forgot password</a> or <a id="SignUpSwap" [routerLink]="['/auth/register']">Sign up</a> 
+                </div>
             </form>
         </div>
     </div>

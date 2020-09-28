@@ -1,0 +1,7 @@
+html, body {
+    height: 100vh !important;
+}
+
+ul.menu_items {
+    overflow: hidden !important;
+}

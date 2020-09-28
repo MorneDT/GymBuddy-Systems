@@ -47,6 +47,11 @@ a {
     font-size: 12px;
     text-decoration: none;
 }
+button {
+    color: #6f6f6f;
+    font-size: 12px;
+    text-decoration: none;
+}
 p {
     max-width: 800px;
     margin: 0px auto;
@@ -147,7 +152,7 @@ div.section2:nth-child(4) .Headings h2 {
     height: 100%;
 }
 /*----------------------------------------*/
-/* 1.1 Buttons
+/* 1.1.1 Buttons: anchor tag <a/>
 /*----------------------------------------*/
 .button a {
     margin: 0px 2px;
@@ -171,6 +176,45 @@ div.section2:nth-child(4) .Headings h2 {
     color: #FFFFFF;
     text-shadow: 0 0 1px #FFFFFF, 0 0 20px #FFFFFF;
 }
+
+/*----------------------------------------*/
+/* 1.1.2 Buttons: button tag <button/>
+/*----------------------------------------*/
+button {
+    width: 100%;
+
+    background-color: transparent;
+    border: none;
+    margin: 0px 2px;
+    position: relative;
+    display: inline-block;
+    /* width: 222px; */
+    text-align: center;
+    padding: 10px 30px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: #6f6f6f;
+    font-size: 18px;
+    border-radius: 40px;
+    box-shadow: -1px -1px 3px rgba(255, 255, 255, 0.1), 2px 2px 6px rgba(0, 0, 0, 0.8);
+}
+button:disabled,
+button:disabled:hover {
+    box-shadow:none !important;
+    color: #6f6f6f !important;
+    text-shadow: none !important;
+    text-decoration: line-through;
+}
+button:hover {
+    box-shadow: -1px -1px 3px rgba(255, 255, 255, 0.1), 2px 2px 6px rgba(0, 0, 0, 0.8), 
+    inset -2px -2px 10px rgba(255, 255, 255, 0.1), inset 2px 2px 10px rgba(0, 0, 0, 0.8);
+    color: #FFFFFF;
+    text-shadow: 0 0 1px #FFFFFF, 0 0 20px #FFFFFF;
+}
+
+
 
 /*----------------------------------------*/
 /* 1.2 Fields
@@ -289,7 +333,7 @@ div.section2:nth-child(4) .Headings h2 {
     height: 200%;
     transform-origin: top left;
     transition: transform 0.7s cubic-bezier(1, 0.005, 0.24, 1);
-    background-image: url("/GymBuddy/images/back-fitness-gym-power-pose.jpg");
+    background-image: url("assets/images/back-fitness-gym-power-pose.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

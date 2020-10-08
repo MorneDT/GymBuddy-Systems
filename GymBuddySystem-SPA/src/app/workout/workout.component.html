@@ -1,0 +1,32 @@
+<div class="workoutbody">
+<div class="wrapper">
+    
+
+  
+  <form [formGroup]="workoutForm" (ngSubmit)="workoutComplete()">
+    <app-timer [start]="false" [showTimerControls]="true" [done]="workoutCompleted" (time)="onGetTime($event)">
+    </app-timer>
+    <div class="exerciseMain">
+      <div class="header">
+
+        <div class="weight-input">
+          <input id="weight" type="number" formControlName="weight"
+            [ngClass]="{'is-invalid': workoutForm.get('weight').errors && workoutForm.get('weight').touched}">
+          <label class="weight-label" for="weight">Kg Weight</label>
+          <div class="invalid-feedback" *ngIf="workoutForm.get('weight').errors && workoutForm.get('weight').touched">
+            Please enter weight</div>
+        </div>
+
+        <h1>Chest Workout<span id="date"></span></h1>
+      </div>
+      <ul id="sortable">
+        <li *ngFor="let exercise of exerciseList">
+          <app-exercise [exerciseItem]="exercise" (exerciseProgress)="onGetProgressItem($event)"></app-exercise>
+        </li>
+      </ul>
+    </div>
+    <button type="submit" [disabled]="!workoutForm.valid">Complete</button>
+    <button routerLink="/chart" routerLinkActive="active" >Close</button>
+  </form>
+</div>
+</div>

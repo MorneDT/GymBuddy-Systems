@@ -5,4 +5,5 @@ export interface User {
     age: number;
     fullName: string;
     created: Date;
+    weight?: number;
 }

@@ -1,0 +1,19 @@
+<!-- <div class="watchContain">
+    <output>{{output}}</output><br>
+    <button id="start" (click)="start()" type="button">Start</button>
+    <button id="stop" (click)="stop()" type="button">Stop</button>
+    <button id="reset" (click)="reset()" type="button">Reset</button>
+</div> -->
+
+<div class="watchContain">
+    <section class="timer-counter-label">
+        <div>
+            <span>{{hours}}:</span><span>{{minutes}}:</span><span>{{seconds}}:</span><span>{{milliseconds}}</span>
+        </div>
+    </section>
+    <div class="timer-button-container" *ngIf="showTimerControls">
+        <button (click)="startTimer()">Start</button>
+        <button (click)="pauseTimer()">Pause</button>
+        <button (click)="clearTimer()">Stop</button>
+    </div>
+</div>

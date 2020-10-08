@@ -1,0 +1,30 @@
+<form [formGroup]="exerciseFromGroup" onchange="updateExercise()">
+    <div class="dragger">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+            <circle cy="7" cx="9.5" r="1" fill="#999"></circle>
+            <circle cy="7" cx="14" r="1" fill="#999"></circle>
+            <circle cy="12.5" cx="9.5" r="1" fill="#999"></circle>
+            <circle cy="12.5" cx="14" r="1" fill="#999"></circle>
+            <circle cy="18" cx="9.5" r="1" fill="#999"></circle>
+            <circle cy="18" cx="14" r="1" fill="#999"></circle>
+        </svg>
+    </div>
+    <input id="checked" type="checkbox" formControlName="checked"
+        [ngClass]="{'is-invalid': exerciseFromGroup.get('checked').errors && exerciseFromGroup.get('checked').touched}">
+    <label id="label_{{exerciseFromGroup.get('id').value}}" for="{{exerciseFromGroup.get('id')}}">
+        <div  class="checkbox"><span class="fa fa-check"></span></div>
+        <span class="item-name">{{exerciseFromGroup.get('name').value}} </span>
+        <!-- <input type="text"> -->
+        <div class="floatRight" style="float: right">
+            <label class="RepsSets"  for="sets_{{exerciseFromGroup.get('id').value}}">Sets</label>
+            <input  id="set_{{exerciseFromGroup.get('id').value}}" type="number" formControlName="sets"
+                [ngClass]="{'is-invalid': exerciseFromGroup.get('sets').errors && exerciseFromGroup.get('sets').touched}"
+                min="1" max="999" placeholder="--">
+
+            <label class="RepsSets" for="reps_{{exerciseFromGroup.get('id').value}}">Reps</label>
+            <input id="reps_{{exerciseFromGroup.get('id').value}}" type="number" formControlName="reps"
+                [ngClass]="{'is-invalid': exerciseFromGroup.get('reps').errors && exerciseFromGroup.get('reps').touched}"
+                min="1" max="999" placeholder="--">
+        </div>
+    </label>
+</form>

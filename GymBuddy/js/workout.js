@@ -1,115 +1,19 @@
+const startBtn = document.querySelector('#start');
+const stopBtn = document.querySelector('#stop');
+const resetBtn = document.querySelector('#reset');
+const output = document.querySelector('output');
+
+
+
 var undo = false;
 var list_item_to_undo;
 var time_out;
 let id = 0;
 
+
 $(document).ready(function () {
 
-  // /*DELETE*/
-  // $('body').on('click', '.fa-trash', function () {
-
-  //   if ($('.exerciseMain ul li').hasClass("temp_deleted")) {
-  //     $('.exerciseMain ul li.temp_deleted').remove();
-  //   }
-
-  //   list_item_to_undo = $(this).parent().parent();
-  //   var undo_time = 10000;
-
-  //   list_item_to_undo.animate({
-  //     height: "0px"
-  //   }, 200, function () {
-  //     $(this).addClass('temp_deleted').hide();
-  //   });
-
-  //   function_undo(list_item_to_undo, undo);
-
-  //   //undo
-  //   $('.undo').addClass('active');
-
-  //   clearTimeout(time_out);
-
-  //   time_out = setTimeout(function () {
-  //     $('.undo').removeClass('active');
-  //     if (undo === false) {
-  //       $('.exerciseMain ul li.temp_deleted').remove();
-  //     }
-  //   }, undo_time);
-
-  // });
-  // /*DELETE*/
-
-
-  // /*UNDO*/
-  // $('.undo div').click(function () {
-  //   undo = true;
-  //   function_undo(list_item_to_undo, undo);
-  //   $(this).parent().removeClass('active');
-  // });
-
-
-  // /*EDIT*/
-  // $('body').on('click', '.fa-pencil', function () {
-  //   var current = $(this).parent().parent().find('span').text();
-  //   $(this).parent().parent().find('input[type=text]').val(current).show().select();
-  // });
-
-
-  // $('body').on('keypress', '.exerciseMain ul li input[type=text]', function (e) {
-  //   if (e.which == 13) {
-  //     //hide undo
-  //     $('.undo').removeClass('active');
-
-  //     var newvalue = $(this).val();
-  //     $(this).parent().parent().find('label span.item-name').text(newvalue);
-  //     $(this).hide();
-  //     return false;    //<---- Add this line
-  //   }
-  // });
-
-
-  // $(document).on('blur', 'input[type=text]', function () {
-  //   $(this).hide();
-  // });
-
-
-
-
-
-  /*ADD NEW*/
-  // $('.add').click(function () {
-  //   $(this).find('input[type=text]').val('Add new').show().select();
-  // });
-
-
-  // $('body').on('keypress', '.add input[type=text]', function (e) {
-  //   if (e.which == 13) {
-
-  //     //hide undo
-  //     $('.undo').removeClass('active');
-
-  //     var newvalue = $(this).val();
-
-  //     var clone = $(".exerciseMain ul li:first").clone();
-  //     clone.find('label span.item-name').text(newvalue);
-
-  //     var random_num = Math.floor(Math.random() * 1000) + 1
-  //     var id = newvalue.replace(/\s/g, '');
-  //     var ids = id + random_num;
-
-  //     clone.find('input').attr({
-  //       id: ids
-  //     });
-  //     clone.find('label').attr('for', ids);
-  //     clone.find("input[type=checkbox]").prop('checked', false);
-  //     clone.removeClass('priority priority1 priority2 checked');
-  //     clone.show();
-  //     clone.appendTo(".exerciseMain ul");
-
-  //     $('.add').trigger("click");
-  //     return false;    //<---- Add this line
-  //   }
-  // });
-
+  document.getElementById("weight").value = 72;
 
   /*CLICK*/
   $('body').on('change', '.exerciseMain ul li input[type=checkbox]', function () {
@@ -154,6 +58,49 @@ if(document.getElementById(id).checked == true){
   element.querySelector("#reps_"+ id).removeAttribute("readonly");
 }
 }
+let timeRead = false;
+
+let now = 0;
+let interval = null;
+
+function startTimer() {
+  
+  let elapsedMil = Date.now() - now;
+  
+  let mil = (elapsedMil).toFixed(0) % 100;
+  let sec = Math.floor(elapsedMil/1000) % 60;
+  let min = Math.floor(elapsedMil/60000) % 60;
+  
+  mil = padTime(mil);
+  sec = padTime(sec);
+  min = padTime(min);
+  
+  function padTime(num) {
+    if (num < 10) {
+      num = "0" + num;
+    }
+    return num;
+  }
+  
+  output.textContent = min + ":" + sec + ":" + mil;
+}
+
+function start() {
+  now = Date.now();
+  interval = window.setInterval(startTimer, 10);
+}
+
+function stop() {
+  window.clearInterval(interval);
+}
+
+function reset() {
+  output.textContent = "00:00:00";
+}
+
+startBtn.addEventListener('click', start);
+stopBtn.addEventListener('click', stop);
+resetBtn.addEventListener('click', reset);
 
 const sortable = document.getElementById("sortable");
 function addTodo(toDo, id) {
@@ -185,7 +132,8 @@ function addTodo(toDo, id) {
   sortable.insertAdjacentHTML(postion, item);
 }
 
-addTodo("Push-ups", id++);
-addTodo("Wide Push-ups", id++);
-addTodo("Diamond Push-ups", id++);
+addTodo("Push-up", id++);
+addTodo("Wide Push-up", id++);
+addTodo("Diamond Push-up", id++);
+addTodo("Rotating Push-up", id++);
 

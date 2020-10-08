@@ -5,3 +5,10 @@ html, body {
 ul.menu_items {
     overflow: hidden !important;
 }
+.exerciseMain .header:hover{
+    box-shadow: inset -6px -6px 10px rgba(255, 255, 255, .5),
+    inset 6px 6px 20px rgba(0, 0, 0, .05);
+  }
+  .exerciseMain .header h1:hover{
+    text-shadow: 0 0 1px #fff, 0 0 20px #fff;
+  }

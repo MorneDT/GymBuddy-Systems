@@ -13,6 +13,7 @@
     4.1 Profile
     4.2 Growth
     4.3 Settings
+5.  Workout
 ------------------------
 ------------------------
 (Responsive always last)
@@ -511,7 +512,342 @@ button:hover {
 /*-------------------------------------------------------------------------------------------
 							 			END of USERPAGE
 -------------------------------------------------------------------------------------------*/ 
+/*-------------------------------------------------------------------------------------------
+							 			5. WORKOUT
+-------------------------------------------------------------------------------------------*/ 
+output {
+    font-size: 50px;
+    font-weight: bold;
+  }
+  .watchContain{
+  padding: 15px;
+  }
 
+  .wrapper{
+    width:100%;
+    max-width:400px;
+    margin: 100px auto;
+  }
+  
+  .exerciseMain{
+    width:100%;
+    box-shadow: -6px -6px 20px rgba(255, 255, 255, 1), 6px 6px 20px rgba(0, 0, 0, .1);
+    border-radius: 20px;
+  }
+  
+  
+  
+  /*HEADER*/
+  .exerciseMain .header{
+    width:100%;
+    height:200px;
+    background-image: url(http://www.thecasualmortgageguy.com/wp-content/uploads/2018/12/18-768x576.jpg);
+    box-shadow: -1px -1px 3px rgba(255, 255, 255, 0.1), 2px 2px 6px rgba(0, 0, 0, 0.8);
+    background-position:center;
+    overflow:hidden;
+    position:relative;
+    border-radius: 20px;
+  }
+  
+  .exerciseMain .header h1{
+    margin:0;
+    color:#fff;
+    vertical-align:bottom;
+    display:inline-block;
+    position:absolute;
+    bottom:0px;
+    left:0px;
+    padding:25px;
+    text-shadow:0px 0px 5px rgba(0,0,0,0.8);
+  }
+  
+  .exerciseMain .header h1 span{
+    font-size:16px;
+    display:block;
+    font-weight:normal;
+    margin-top:5px;
+  }
+  
+  /*ITEMS*/
+  .exerciseMain ul{
+    padding:0;
+    margin:0;
+    list-style-type: none;
+    padding-top:5px;
+    position:relative;
+  }
+  
+  .exerciseMain ul li{
+    position:relative;  
+    padding:0 25px;
+  }
+  
+  .exerciseMain ul li .dragger{
+    position:absolute;
+      top: -1px;
+      left: -21px;
+      color: #ccc;
+      font-size: 11px;
+      display: none; 
+      padding: 23px;
+    cursor:move;
+  }
+  
+  .exerciseMain ul li.dragger span:first-child{
+    position:relative;
+    left:5px;
+  }
+  
+  .exerciseMain ul li:hover .dragger{
+    display:block;
+  }
+  
+
+  
+  .exerciseMain ul li.ui-sortable-helper{
+    background:white;
+    border-radius:  20px;
+    box-shadow:0px 5px 15px rgba(0,0,0,0.1),
+    inset -6px -6px 10px rgba(255, 255, 255, .5),
+    inset 6px 6px 20px rgba(0, 0, 0, .05);
+    cursor:move;
+  }
+  
+  .exerciseMain ul li.ui-sortable-helper label{
+      border:none;
+  }
+  
+  .exerciseMain ul li.ui-sortable-helper .priority-indicator{
+    left:-7px;
+  }
+  
+  .exerciseMain ul li:nth-child(2) label{
+    border-top:0;
+  }
+  
+  .exerciseMain ul li label{
+    display:inline-block;
+    height:100%;
+    width:100%;
+    padding:20px 0;
+    position:relative;
+  }
+  
+  .exerciseMain ul li label:hover .checkbox{
+    border-color:#091921;;
+    
+  }
+  
+  /*CHECKED*/
+  .exerciseMain ul li input[type=checkbox]:checked + label span:before{
+    width:100%;
+  }
+  
+  .exerciseMain ul li input[type=checkbox]:checked + label .checkbox, 
+  .exerciseMain ul li input[type=checkbox]:focus + label .checkbox{
+    background:#091921;
+    border-color:#091921;
+  }
+  
+  .exerciseMain ul li input[type=checkbox]:checked + label{
+    color: #091921;
+    text-shadow: 0 0 1px #091921, 0 0 20px #091921;
+    
+  }
+  
+  .exerciseMain ul li input[type=checkbox]:checked + .icon-pencil{
+    color: #091921;
+  }
+  
+  .exerciseMain ul li input[type=checkbox]:checked + label .checkbox .fa{
+    display:block;
+  }
+  
+  .exerciseMain ul li label .checkbox{
+    display:inline-block;
+    width:20px;
+    height:20px;
+    border:2px solid #CCC;
+    position:relative;
+    top:2px;
+    border-radius: 100%;
+    cursor:pointer;
+    z-index:10;
+  }
+  
+  .exerciseMain ul li label .checkbox .fa{
+    text-align:center;
+    position:absolute;
+    top:3px;
+    left:3px;
+    font-size:14px;
+    display:none;
+    color:white;
+  }
+  
+  .exerciseMain ul li label span.item-name{
+    display:inline-block; 
+    margin-left:10px;
+    vertical-align: top;
+    position:relative;
+    top:5px;
+  }
+  
+  .add input,
+  .exerciseMain ul li input[type=text]{
+     position: absolute;
+      border: none;
+      color: #333;
+      font-size: 16px;
+      padding: 25px 0;
+    padding-left:39px;
+      width:0;  
+      top: 0px;
+    left:0;
+      display: none;
+      font-family: Arial;
+    border-bottom:2px solid #34a1fd;
+    
+       -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    z-index:1;
+    
+    -webkit-transition: width 0.2s ease;
+      -moz-transition:    width 0.2s ease;
+      -o-transition:      width 0.2s ease;
+      -ms-transition:     width 0.2s ease;
+      transition:         width 0.2s ease;
+  }
+  
+  .add input,
+  .exerciseMain ul li input[type=number]{
+    text-align: center;
+    float: right; 
+    width: 30px;  
+    border-radius: 10px;
+    border: 0px;
+    padding: 6px;
+    box-shadow: inset -6px -6px 10px rgba(255, 255, 255, .5), inset 6px 6px 20px rgba(0, 0, 0, .05);
+  }
+  
+  *:focus {
+    outline: none;
+  }
+  .exerciseMain ul li label .RepsSets{
+    float: right;
+    line-height: 0px;
+    padding-top: 12px;
+    padding-right: 15px;
+    padding-left: 2px;
+   
+  }
+  
+  .weight-input{
+    padding: 30px;
+  }
+  .weight-label{
+    color: #fff;
+    text-shadow:0px 0px 5px rgba(0,0,0,0.8);
+  }
+  #weight{
+    text-align: center;
+    
+    width: 30px;  
+    border-radius: 10px;
+    border: 0px;
+    padding: 6px;
+    box-shadow: inset -6px -6px 10px rgba(255, 255, 255, .5), inset 6px 6px 20px rgba(0, 0, 0, .05);
+  }
+  
+  .add input,
+  .exerciseMain ul li input[type=text]:focus{
+    outline:none;
+    width:100%;
+  }
+  
+  .exerciseMain ul li input[type=checkbox]{
+    display:none;
+  }
+  
+  .exerciseMain ul .actions{
+    position:absolute;
+    top:0;
+    right:20px;
+    overflow:hidden;
+    z-index:10;
+  }
+  
+  .exerciseMain ul li:hover .actions{
+    display:block;
+  }
+  
+  .exerciseMain ul li:hover .actions span{
+     opacity:1;
+    -moz-transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -o-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+    
+    -webkit-transition: all 0.2s ease;
+      -moz-transition:    all 0.2s ease;
+      -o-transition:      all 0.2s ease;
+      -ms-transition:     all 0.2s ease;
+      transition:         all 0.2s ease;
+  }
+  
+  .exerciseMain ul .actions span{
+    vertical-align: middle;
+     display: inline-block;
+    padding:25px 6px;
+    cursor:pointer;
+    color:#999;
+    
+    opacity:0;
+    -moz-transform: translateX(100px);
+    -webkit-transform: translateX(100px);
+    -o-transform: translateX(100px);
+    -ms-transform: translateX(100px);
+    transform: translateX(100px);
+  }
+  
+  .exerciseMain ul .actions span.fa-pencil:hover{
+    color:#091921;
+  }
+  
+  .exerciseMain ul .actions span.fa-trash:hover{
+    color:#091921;
+  }
+  
+  
+  
+  /*TOOLTIP*/
+  .ui-tooltip {
+      width: 200px;
+      text-align: center;
+      box-shadow: none;
+      padding: 0;
+  }
+  .ui-tooltip-content {
+      position: relative;
+      padding: 0.5em;
+  }
+  
+  
+  
+  
+  
+  
+  
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  /*-------------------------------------------------------------------------------------------
+							 			END of WORKOUT
+-------------------------------------------------------------------------------------------*/ 
 /*----------------------------------------*/
 /*  Responsive
 /*----------------------------------------*/

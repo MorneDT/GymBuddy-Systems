@@ -5,9 +5,8 @@
     <ul class="menu_items">
         <li><a id="profile-menu-item" href="#" class="hide"><i class="fas fa-user"></i>
                 Profile</a></li>
-        <li><a id="growth-menu-item" href="#" class="hide"><i
-                    class="fas fa-seedling"></i> Growth</a></li>
-        <li><a id="settings-menu-item" href="#"  class="hide"><i class="fas fa-cog"></i>
+        <li><a id="growth-menu-item" href="#" class="hide"><i class="fas fa-seedling"></i> Growth</a></li>
+        <li><a id="settings-menu-item" href="#" class="hide"><i class="fas fa-cog"></i>
                 Settings</a></li>
         <li><a href="#" onclick="logout()"><i class="fas fa-power-off"></i> Sign-out</a></li>
     </ul>
@@ -17,9 +16,15 @@
             <div class="section2">
                 <div class="Headings">
                     <h2>Workouts</h2>
+                    <div class="wrapper">
+                        <a class="exerciseMain" routerLink="/workout" routerLinkActive="active">
+                            <div class="header">
+                                <h1>Chest Workout</h1>
+                            </div>
+                        </a>
+                    </div>
                     <div class="iframe-container">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/hBQfOPfny7w"
-                            frameborder="0"
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/hBQfOPfny7w" frameborder="0"
                             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                             allowfullscreen></iframe>
                     </div>

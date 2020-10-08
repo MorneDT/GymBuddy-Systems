@@ -24,9 +24,9 @@ export class AuthService {
           const user = response;
           if (user) {
             localStorage.setItem('token', user.token);
-            localStorage.setItem('user', JSON.stringify(user.user));
+            localStorage.setItem('user', JSON.stringify(user.userToReturn));
             this.decodedToken = this.jwtHerper.decodeToken(user.token);
-            this.currentUser = user.user;
+            this.currentUser = user.userToReturn;
           }
         })
       );

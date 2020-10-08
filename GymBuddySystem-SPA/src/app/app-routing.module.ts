@@ -4,6 +4,8 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { UserComponent } from './user/user.component';
+import { WorkoutComponent } from './workout/workout.component';
+import { ChartComponent } from './chart/chart.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -14,6 +16,8 @@ const routes: Routes = [
     ] 
   },
   { path: 'user',  component: UserComponent },
+  { path: 'workout',  component: WorkoutComponent },
+  { path: 'chart', component: ChartComponent},
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 

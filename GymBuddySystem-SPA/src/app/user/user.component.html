@@ -3,11 +3,11 @@
         <i class="menu_open fa fa-bars fa-lg"></i>
     </span>
     <ul class="menu_items">
-        <li><a id="profile-menu-item" href="#" class="hide"><i class="fas fa-user"></i>
-                Profile</a></li>
-        <li><a id="growth-menu-item" href="#" class="hide"><i class="fas fa-seedling"></i> Growth</a></li>
-        <li><a id="settings-menu-item" href="#" class="hide"><i class="fas fa-cog"></i>
-                Settings</a></li>
+        <!-- <li><a id="profile-menu-item" href="#" class="hide"><i class="fas fa-user"></i>
+                Profile</a></li> -->
+        <li><a id="growth-menu-item" [routerLink]="['/growth']" class="hide"><i class="fas fa-seedling"></i> Growth</a></li>
+        <!-- <li><a id="settings-menu-item" href="#" class="hide"><i class="fas fa-cog"></i>
+                Settings</a></li> -->
         <li><a href="#" onclick="logout()"><i class="fas fa-power-off"></i> Sign-out</a></li>
     </ul>
     <main class="content">

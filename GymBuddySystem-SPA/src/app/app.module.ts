@@ -7,6 +7,7 @@ import { AuthService } from '././_services/auth.service';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { AlertifyService } from './_services/alertify.service';
+import { WorkoutService } from './_services/workout.service';
 import { UserComponent } from './user/user.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -15,14 +16,11 @@ import { RegisterComponent } from './register/register.component';
 import { WorkoutComponent } from './workout/workout.component';
 import { TimerComponent } from './timer/timer.component';
 import { ExerciseComponent } from './exercise/exercise.component';
-import { ChartComponent } from './chart/chart.component';
-import { ZingchartAngularModule } from 'zingchart-angular';
+import { GrowthComponent } from './growth/growth.component';
+
 export function tokenGetter() {
   return localStorage.getItem('token');
 }
-
-
-
 
 @NgModule({
   declarations: [
@@ -34,7 +32,7 @@ export function tokenGetter() {
     WorkoutComponent,
     TimerComponent,
     ExerciseComponent,
-    ChartComponent
+    GrowthComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -42,7 +40,6 @@ export function tokenGetter() {
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
-    ZingchartAngularModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
@@ -53,7 +50,8 @@ export function tokenGetter() {
   ],
   providers: [
     AuthService,
-    AlertifyService
+    AlertifyService,
+    WorkoutService,
   ],
   bootstrap: [AppComponent]
 })

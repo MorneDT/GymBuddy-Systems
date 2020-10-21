@@ -9,8 +9,8 @@ using PomegranateTechnologies.API.Data;
 namespace PomegranateTechnologies.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20200823070535_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20201008194312_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -18,13 +18,44 @@ namespace PomegranateTechnologies.API.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.6");
 
-            modelBuilder.Entity("PomegranateTechnologies.API.Models.Person", b =>
+            modelBuilder.Entity("PomegranateTechnologies.API.Models.Exercise", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("CaptureDate")
+                    b.Property<DateTime?>("CaptureDate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool?>("IsActive")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
+
+                    b.Property<long?>("Reps")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<long?>("Sets")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("WorkoutId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("WorkoutId");
+
+                    b.ToTable("Exercise");
+                });
+
+            modelBuilder.Entity("PomegranateTechnologies.API.Models.Person", b =>
+                {
+                    b.Property<int?>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime?>("CaptureDate")
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("DateOfBirth")
@@ -36,11 +67,14 @@ namespace PomegranateTechnologies.API.Migrations
                     b.Property<int?>("Gender")
                         .HasColumnType("INTEGER");
 
-                    b.Property<bool>("IsActive")
+                    b.Property<bool?>("IsActive")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("LastName")
                         .HasColumnType("TEXT");
+
+                    b.Property<long?>("Weight")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 
@@ -49,14 +83,14 @@ namespace PomegranateTechnologies.API.Migrations
 
             modelBuilder.Entity("PomegranateTechnologies.API.Models.SystemUser", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("CaptureDate")
+                    b.Property<DateTime?>("CaptureDate")
                         .HasColumnType("TEXT");
 
-                    b.Property<bool>("IsActive")
+                    b.Property<bool?>("IsActive")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("PersonId")
@@ -74,14 +108,14 @@ namespace PomegranateTechnologies.API.Migrations
 
             modelBuilder.Entity("PomegranateTechnologies.API.Models.SystemUserAccount", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime?>("AccountLockedDate")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("CaptureDate")
+                    b.Property<DateTime?>("CaptureDate")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("FailedLoginAttempts")
@@ -90,7 +124,7 @@ namespace PomegranateTechnologies.API.Migrations
                     b.Property<bool>("IsAccountLocked")
                         .HasColumnType("INTEGER");
 
-                    b.Property<bool>("IsActive")
+                    b.Property<bool?>("IsActive")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("SystemUserId")
@@ -105,11 +139,11 @@ namespace PomegranateTechnologies.API.Migrations
 
             modelBuilder.Entity("PomegranateTechnologies.API.Models.SystemUserDetail", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("CaptureDate")
+                    b.Property<DateTime?>("CaptureDate")
                         .HasColumnType("TEXT");
 
                     b.Property<byte[]>("DetailHash")
@@ -118,7 +152,7 @@ namespace PomegranateTechnologies.API.Migrations
                     b.Property<byte[]>("DetailSalt")
                         .HasColumnType("BLOB");
 
-                    b.Property<bool>("IsActive")
+                    b.Property<bool?>("IsActive")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("SystemUserId")
@@ -129,6 +163,38 @@ namespace PomegranateTechnologies.API.Migrations
                     b.HasIndex("SystemUserId");
 
                     b.ToTable("SystemUserDetail");
+                });
+
+            modelBuilder.Entity("PomegranateTechnologies.API.Models.Workout", b =>
+                {
+                    b.Property<int?>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime?>("CaptureDate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool?>("IsActive")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("PersonId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Time")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PersonId");
+
+                    b.ToTable("Workout");
+                });
+
+            modelBuilder.Entity("PomegranateTechnologies.API.Models.Exercise", b =>
+                {
+                    b.HasOne("PomegranateTechnologies.API.Models.Workout", null)
+                        .WithMany("Exercises")
+                        .HasForeignKey("WorkoutId");
                 });
 
             modelBuilder.Entity("PomegranateTechnologies.API.Models.SystemUser", b =>
@@ -154,6 +220,15 @@ namespace PomegranateTechnologies.API.Migrations
                     b.HasOne("PomegranateTechnologies.API.Models.SystemUser", "SystemUser")
                         .WithMany("SystemUserDetails")
                         .HasForeignKey("SystemUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("PomegranateTechnologies.API.Models.Workout", b =>
+                {
+                    b.HasOne("PomegranateTechnologies.API.Models.Person", "Person")
+                        .WithMany()
+                        .HasForeignKey("PersonId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

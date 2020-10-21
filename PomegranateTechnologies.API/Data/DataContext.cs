@@ -11,6 +11,8 @@ namespace PomegranateTechnologies.API.Data
         public DbSet<SystemUserDetail> SystemUserDetail { get; set; }
         public DbSet<SystemUserAccount> SystemUserAccount { get; set; }
         public DbSet<Person> Person { get; set; }
+        public DbSet<Workout> Workout { get; set; }
+        public DbSet<Exercise> Exercise { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

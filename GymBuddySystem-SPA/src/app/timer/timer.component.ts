@@ -1,12 +1,14 @@
 import { AfterViewInit, Component, EventEmitter, Input, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
-import { BehaviorSubject, Subscription, timer } from "rxjs";
+import { BehaviorSubject, Observable, Subject, Subscription, timer } from "rxjs";
+import { WorkoutService } from '../_services/workout.service';
 
 @Component({
   selector: 'app-timer',
   templateUrl: './timer.component.html',
   styleUrls: ['./timer.component.css']
 })
-export class TimerComponent implements OnInit {
+export class TimerComponent implements OnInit , OnDestroy {
+  timerSubscriptionChild: Subscription;
   clock: any;
   timerRef: any;
   counter: number;
@@ -15,33 +17,19 @@ export class TimerComponent implements OnInit {
   seconds: any = '00';
   milliseconds: any = '00';
   hours: any = '00';
-  _completed: boolean = false;
-
-  @Input() 
-  set done(done: boolean) {
-    this._completed = (done);
-    if(this._completed == true) {
-      this.clearTimer();
-    }
-  }
-  get done() { return this._completed; }
+  _completed: Observable<boolean>;
   @Input() start: boolean = false;
   @Input() showTimerControls: boolean = true;
-  @Output() time = new EventEmitter<string>();
 
-  constructor() {
+  constructor(private workoutService: WorkoutService) {
+    this.timerSubscriptionChild = this.workoutService.completeWorkout.subscribe((stopped) => {
+      console.log('timer: completeWorkout = ', stopped);
+      if(stopped == true) {
+        this.pauseTimer();
+      }
+    });
   }
-
-  ngOnChanges(changes: SimpleChanges) {
-    console.log(changes['start']);
-    if (changes['start'].currentValue) {
-      this.startTimer();
-    }
-    else {
-      this.clearTimer();
-    }
-  }
-
+  
   startTimer() {
     this.running = !this.running;
     if (this.running) {
@@ -78,10 +66,12 @@ export class TimerComponent implements OnInit {
   }
 
   pauseTimer() {
+    console.log('timer: this.timerRef', this.timerRef);
     if (this.timerRef) {
-      clearInterval(this.timerRef);
       this.running = false;
-      this.time.emit(this.hours + ':' + this.minutes + ':' + this.seconds + ':' + this.milliseconds);
+
+      this.workoutService.setTime(this.hours + ':' + this.minutes + ':' + this.seconds + ':' + this.milliseconds);
+      clearInterval(this.timerRef);
     }
   }
 
@@ -93,6 +83,12 @@ export class TimerComponent implements OnInit {
     this.seconds = '00';
     this.milliseconds = '00';
   }
+  
   ngOnInit(): void {
+  }
+
+  ngOnDestroy() {
+    this.timerSubscriptionChild.unsubscribe;
+    this.timerSubscriptionChild = null;
   }
 }

@@ -9,5 +9,6 @@ namespace PomegranateTechnologies.API.Models
         public string LastName { get; set; }
         public DateTime DateOfBirth { get; set; }
         public GenderEnum? Gender { get; set; }
+        public long? Weight { get; set; }
     }
 }

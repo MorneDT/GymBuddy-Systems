@@ -26,6 +26,11 @@ namespace PomegranateTechnologies.API.Helper
                 .ForMember(dest => dest.Username, opt => { opt.MapFrom(src => src.Username); })
                 .ForMember(dest => dest.Id, opt => { opt.MapFrom(src => src.Id); })
                 .ForMember(dest => dest.Created, opt => { opt.MapFrom(src => src.CaptureDate); });
+
+            CreateMap<WorkoutForUserDTO, Workout>()
+                .ForMember(dest => dest.Time, opt => { opt.MapFrom(src => src.Time); })
+                .ForMember(dest => dest.Id, opt => { opt.MapFrom(src => src.Id); })
+                .ForMember(dest => dest.Exercises, opt => { opt.MapFrom(src => src.Exercises); });
         }
     }
 }

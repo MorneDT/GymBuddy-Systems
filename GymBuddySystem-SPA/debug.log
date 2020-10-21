@@ -28,3 +28,43 @@
 [1008/103723.804:ERROR:crash_report_database_win.cc(469)] failed to stat report
 [1008/103723.804:ERROR:crash_report_database_win.cc(469)] failed to stat report
 [1008/103723.804:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[1008/135827.726:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[1008/135827.727:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[1008/135827.727:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[1008/155347.473:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[1008/155347.473:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[1008/155347.474:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[1008/164615.978:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[1008/164615.979:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[1008/164615.979:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[1008/200604.647:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[1008/200604.648:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[1008/200604.648:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[1008/210452.121:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[1008/210452.122:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[1008/210452.122:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[1008/223224.918:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[1008/223224.918:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[1008/223224.918:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[1012/182017.370:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[1012/182017.370:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[1012/182017.370:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[1012/191420.144:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[1012/191420.144:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[1012/191420.144:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[1012/194657.179:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[1012/194657.180:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[1012/194657.180:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[1013/194248.356:ERROR:crash_report_database_win.cc(498)] failed to stat report
+[1013/194248.356:ERROR:crash_report_database_win.cc(498)] failed to stat report
+[1013/194248.356:ERROR:crash_report_database_win.cc(498)] failed to stat report
+[1013/195248.357:ERROR:crash_report_database_win.cc(498)] failed to stat report
+[1013/195248.357:ERROR:crash_report_database_win.cc(498)] failed to stat report
+[1013/195248.357:ERROR:crash_report_database_win.cc(498)] failed to stat report
+[1013/195248.358:ERROR:filesystem_win.cc(116)] GetFileAttributes C:\Users\iamro\AppData\Local\Google\Chrome\User Data\Crashpad\reports\59f02ea1-994a-4bc0-a578-73bd187ede6a.dmp: The system cannot find the file specified. (0x2)
+[1013/195248.358:ERROR:filesystem_win.cc(116)] GetFileAttributes C:\Users\iamro\AppData\Local\Google\Chrome\User Data\Crashpad\reports\d426da33-76d4-444a-afb1-255172a91fcb.dmp: The system cannot find the file specified. (0x2)
+[1013/195248.358:ERROR:filesystem_win.cc(116)] GetFileAttributes C:\Users\iamro\AppData\Local\Google\Chrome\User Data\Crashpad\reports\0a90f066-840c-4753-b5f9-bffd6391c7d8.dmp: The system cannot find the file specified. (0x2)
+[1013/195248.358:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1015/083623.936:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1015/165643.017:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1020/095227.890:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)

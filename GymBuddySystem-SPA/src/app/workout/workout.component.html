@@ -4,8 +4,7 @@
 
   
   <form [formGroup]="workoutForm" (ngSubmit)="workoutComplete()">
-    <app-timer [start]="false" [showTimerControls]="true" [done]="workoutCompleted" (time)="onGetTime($event)">
-    </app-timer>
+    <app-timer [start]="false" [showTimerControls]="true"></app-timer>
     <div class="exerciseMain">
       <div class="header">
 
@@ -26,7 +25,7 @@
       </ul>
     </div>
     <button type="submit" [disabled]="!workoutForm.valid">Complete</button>
-    <button routerLink="/chart" routerLinkActive="active" >Close</button>
+    <button routerLink="/user" routerLinkActive="active" >Close</button>
   </form>
 </div>
 </div>

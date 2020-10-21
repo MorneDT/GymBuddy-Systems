@@ -1,5 +1,5 @@
 export interface Exercise {
-    id: number;
+    id?: number;
     checked: boolean;
     name: string;
     reps?: number;

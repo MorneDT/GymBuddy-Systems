@@ -13,7 +13,9 @@ using Microsoft.Extensions.Logging;
 using PomegranateTechnologies.API.Data;
 using Microsoft.EntityFrameworkCore;
 using AutoMapper;
-
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace PomegranateTechnologies.API
 {
@@ -46,6 +48,18 @@ namespace PomegranateTechnologies.API
             services.AddCors();
             services.AddAutoMapper(typeof(Startup));
             services.AddScoped<IAuthRepository, AuthRepository>();
+            services.AddScoped<IProfileRepository, ProfileRepository>();
+            services.AddScoped<IWorkoutRepository, WorkoutRepository>();
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options => {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuerSigningKey = true,
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Configuration.GetSection("AppSettings:Token").Value)),
+                        ValidateIssuer = false,
+                        ValidateAudience = false
+                    }; 
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,16 +69,23 @@ namespace PomegranateTechnologies.API
             {
                 app.UseDeveloperExceptionPage();
             }
+            
+            //app.UseHttpsRedirection();
+
+            app.UseRouting();
+
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
-            //app.UseHttpsRedirection();
-            app.UseRouting();
+
             app.UseDefaultFiles();
             app.UseStaticFiles();
-            app.UseAuthorization();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapFallbackToController("Index", "Fallback");
             });
         }
     }
